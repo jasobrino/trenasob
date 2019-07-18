@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Tabla {{ nomtabla }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- dentro del content relacionamos los registros de la tabla -->
+    <app-listatabla #listatabla [nomtabla]="nomtabla" [opciones]="opciones"></app-listatabla>
+
+</ion-content>
+
+<ion-footer no-border>
+
+    <ion-button expand="full" 
+                color="tertiary" 
+                (click)="cerrar()">
+        Cerrar
+    </ion-button>
+
+    <ion-button expand="full"
+                color="secondary"
+                [disabled]="!activaGuardar"
+                (click)="guardar()">
+        Guardar
+    </ion-button>
+
+</ion-footer>
+<!-- </ion-content> -->

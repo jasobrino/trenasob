@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>inicio</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="pagPreparada">
+
+    <h1>Estamos en InicioPage</h1>
+    <div>
+        <img  *ngIf="imagenURL" [src]="imagenURL | domSanitizer" width="120px"/>
+    </div>
+
+
+    <ion-button class="btn-info" (click)="selRamo( $event )">
+        Listado Ramos
+    </ion-button>
+
+    <!-- <ion-button class="btn-info" (click)="verCompanias = !verCompanias"> -->
+    <ion-button class="btn-info" (click)="selCompania( $event ); verCompanias = !verCompanias">
+        Listado Compañias
+    </ion-button>
+
+    <ion-item> <small>Ramo: </small> {{ ramo.campo }} </ion-item>
+    <ion-item>
+        <ion-text><small>Compañia: </small> {{ compania.campo }} </ion-text>
+    </ion-item>
+
+    <p>
+        <ion-button class="btn-block btn-dark" (click)="mostrarModal()">
+            Mostrar Modal
+        </ion-button>
+    </p>
+   
+        <ion-item>
+            <ion-input [(ngModel)]="nomArchivo"
+                       placeHolder="fichero a descargar"
+                       spellcheck="false">
+            </ion-input>
+    
+            <ion-button class="btn-block btn-dark" (click)="procesaFich()">
+                guardar fichero
+            </ion-button>     
+        </ion-item>
+
+    <!-- <app-companias *ngIf="verCompanias"></app-companias> -->
+
+
+</ion-content>

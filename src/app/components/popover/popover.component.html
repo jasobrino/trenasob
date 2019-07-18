@@ -1,0 +1,7 @@
+<ion-list>
+    <ion-item *ngFor="let item of lista">
+        <ion-label (click)="onClick( item )">
+            {{ item.campo }}
+        </ion-label>
+    </ion-item>
+</ion-list>

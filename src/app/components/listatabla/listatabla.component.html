@@ -1,0 +1,34 @@
+
+<ion-list *ngIf="lista.length > 0"> 
+  <ion-item *ngFor="let item of lista">
+    <ion-label color="medium"> 
+       {{ item.ID }}
+    </ion-label>
+    <!-- en el ngModel capturamos el valor pero no se modifica el array en los cambios -->
+    <ion-input #input
+               required="true"
+               [minlength]="ItemlengthMin"
+               name="campo"
+               [ngModel]="item.campo"  
+               (ionBlur)="onblur($event, input, item)"
+               (ionInput)="onInput($event, input)"
+               readonly="true"
+               (ionChange)="onchange($event)"
+               spellcheck="false"
+               type="text">
+
+    </ion-input>
+    <ion-icon name="create" slot="end"
+              (click)="editar(item, input)">
+
+    </ion-icon>
+  </ion-item>
+</ion-list>
+
+
+
+<ion-card color="secondary" *ngIf="lista.length == 0">
+  <ion-card-title class="ion-margin">
+    Esperando datos...
+  </ion-card-title>
+</ion-card>
